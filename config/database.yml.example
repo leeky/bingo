@@ -21,3 +21,8 @@ production:
   pool: 5
   username: bingo
   password:
+
+postgres:
+  adapter: postgresql
+  database: bingo_test
+  username: postgres

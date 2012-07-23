@@ -14,14 +14,6 @@ test:
   username: bingo
   password:
 
-production:
-  adapter: postgresql
-  encoding: unicode
-  database: bingo_production
-  pool: 5
-  username: bingo
-  password:
-
 postgres:
   adapter: postgresql
   database: bingo_test
