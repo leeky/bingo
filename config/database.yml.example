@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: bingo_development
+  pool: 5
+  username: bingo
+  password:
+
+test:
+  adapter: postgresql
+  encoding: unicode
+  database: bingo_test
+  pool: 5
+  username: bingo
+  password:
+
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: bingo_production
+  pool: 5
+  username: bingo
+  password:
