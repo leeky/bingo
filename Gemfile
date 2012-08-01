@@ -35,7 +35,7 @@ group :development do
   gem 'guard-spork'
   gem 'guard-bundler'
   gem 'guard-migrate'
-  gem 'guard-evergreen'
+  gem 'guard-jasmine'
 end
 
 group :development, :test do
@@ -51,8 +51,8 @@ group :development, :test do
   # Speeds testing by keeping Rails framework running in background
   gem 'spork'
 
-  # Use Evergreen for JavaScript testing
-  gem 'evergreen', :require => 'evergreen/rails'
+  # Use Jasminerice for testing Javascript
+  gem 'jasminerice'
 
   # Database Cleaner resets the database between test runs
   gem 'database_cleaner'
