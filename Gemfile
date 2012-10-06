@@ -28,6 +28,7 @@ group :development do
   gem 'rb-inotify', :require => false
   gem 'rb-fsevent', :require => false
   gem 'rb-fchange', :require => false
+  gem 'growl'
 
   # Guard plugins
   gem 'guard-rspec'
@@ -35,6 +36,7 @@ group :development do
   gem 'guard-bundler'
   gem 'guard-migrate'
   gem 'guard-jasmine'
+  gem 'guard-evergreen'
 end
 
 group :development, :test do
