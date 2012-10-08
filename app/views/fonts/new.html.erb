@@ -1,0 +1,8 @@
+<%= simple_form_for @font do |f| %>
+  <%= f.input :name %>
+  <%= f.input :typeface %>
+
+  <div class="form-actions">
+    <%= f.submit 'Upload Font', class: 'btn btn-primary' %>
+  </div>
+<% end %>

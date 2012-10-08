@@ -1,0 +1,29 @@
+<h1>Fonts</h1>
+
+<% if @fonts.size > 0 %>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name:</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @fonts.each do |font| %>
+    <tr>
+      <td><%= font.name %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr />
+<% end %>
+
+<%= simple_form_for @font do |f| %>
+  <%= f.input :name %>
+  <%= f.input :typeface %>
+
+  <div class="form-actions">
+    <%= f.submit 'Upload Font', class: 'btn btn-primary' %>
+  </div>
+<% end %>
