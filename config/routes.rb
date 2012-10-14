@@ -1,5 +1,6 @@
 Bingo::Application.routes.draw do
   resources :fonts
+  resources :pictures
 
   root to: 'homepage#index'
   # The priority is based upon order of creation:

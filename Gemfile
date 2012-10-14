@@ -7,6 +7,7 @@ gem 'simple_form'
 gem 'prawn'
 gem 'twitter-bootstrap-rails'
 gem 'carrierwave'
+gem 'rmagick'
 
 group :assets do
   gem 'coffee-rails', '~> 3.2.2'
