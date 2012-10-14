@@ -21,8 +21,9 @@ class FontsController < ApplicationController
   end
 
   def destroy
-    @font = Font.where(id: params[:id])
+    @font = Font.find(params[:id])
     @font.destroy
+
     redirect_to fonts_path, notice: 'Font was successfully deleted.'
   end
 end
