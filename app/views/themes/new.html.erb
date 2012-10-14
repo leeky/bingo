@@ -1,0 +1,9 @@
+<%= simple_form_for @theme do |f| %>
+  <%= f.input :name %>
+  <%= f.association :fonts, as: :check_boxes %>
+  <%= f.association :pictures, as: :check_boxes %>
+
+  <div class="form-actions">
+    <%= f.submit 'Create Theme', class: 'btn btn-primary' %>
+  </div>
+<% end %>
