@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014154219) do
+ActiveRecord::Schema.define(:version => 20121014160824) do
 
   create_table "fonts", :force => true do |t|
     t.string   "name"
@@ -20,9 +20,27 @@ ActiveRecord::Schema.define(:version => 20121014154219) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "fonts_themes", :force => true do |t|
+    t.integer "theme_id"
+    t.integer "font_id"
+  end
+
   create_table "pictures", :force => true do |t|
     t.string   "name"
     t.string   "image"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pictures_themes", :force => true do |t|
+    t.integer "theme_id"
+    t.integer "picture_id"
+  end
+
+  create_table "themes", :force => true do |t|
+    t.string   "name"
+    t.integer  "font_id"
+    t.integer  "picture_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
