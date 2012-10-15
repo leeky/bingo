@@ -1,10 +1,22 @@
+<% content_for :head do %>
+  <style>
+  @font-face{
+    font-family: glyph-preview;
+    src: url(<%= @font.typeface %>);
+  }
+  </style>
+<% end %>
+
 <%= simple_form_for @font do |f| %>
   <%= f.input :name %>
 
-  <ul class="glyphs">
-    <% (33..126).each do |glyph| %>
-      <li><span><%= glyph.chr %></span><%= text_field_tag "font[glyph[#{glyph}]][name]" %></li>
-    <% end %>
+  <ul class="glyphs clearfix">
+  <% @font.glyphs.each do |glyph| %>
+    <li>
+      <label class="string optional control-label" for="glyph_<%= glyph.ascii %>_name"><%= glyph.ascii.chr %></label>
+      <%= text_field_tag "glyph[#{glyph.ascii}][name]", glyph.name %>
+    </li>
+  <% end %>
   </ul>
 
   <div class="form-actions">

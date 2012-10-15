@@ -22,16 +22,33 @@ class FontsController < ApplicationController
 
   def edit
     @font = Font.find(params[:id])
-    @font.glyphs.build
+    @glyphs = @font.glyphs.collect(&:ascii)
 
-    @glyphs = Glyph.where(font_id: @font).all
+    (33..126).each do |char|
+      unless @glyphs.include?(char)
+        @font.glyphs.build(ascii: char)
+      end
+    end
+
   end
 
   def update
     @font = Font.find(params[:id])
+    @glyphs = @font.glyphs
 
     if @font.update_attributes(params[:font])
       redirect_to fonts_path, notice: 'Font was successfully updated.'
+
+      params[:glyph].each do |k,v|
+        unless v[:name].blank?
+          @glyph = @font.glyphs.find_or_create_by_ascii(k)
+          @glyph.name = v[:name].to_s
+          @glyph.save
+        else
+          @glyph = @font.glyphs.find_by_ascii(k)
+          @glyph.destroy if @glyph
+        end
+      end
     else
       render action: "edit"
     end

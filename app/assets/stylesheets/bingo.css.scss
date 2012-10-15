@@ -1,0 +1,20 @@
+ul.glyphs {
+  list-style-type: none;
+
+  li {
+    width: 20%;
+    float: left;
+    text-align: center;
+
+    label {
+      font-size: 72px;
+      font-family: glyph-preview;
+      margin: 32px 0 16px;
+    }
+
+    input {
+      text-align: center;
+    }
+
+  }
+}
