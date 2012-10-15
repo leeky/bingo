@@ -9,15 +9,18 @@
 
 <%= simple_form_for @font do |f| %>
   <%= f.input :name %>
+  <%= f.input :dingbat %>
 
-  <ul class="glyphs clearfix">
-  <% @font.glyphs.each do |glyph| %>
-    <li>
-      <label class="string optional control-label" for="glyph_<%= glyph.ascii %>_name"><%= glyph.ascii.chr %></label>
-      <%= text_field_tag "glyph[#{glyph.ascii}][name]", glyph.name %>
-    </li>
+  <% if @font.dingbat? %>
+    <ul class="glyphs clearfix">
+    <% @font.glyphs.each do |glyph| %>
+      <li>
+        <label class="string optional control-label" for="glyph_<%= glyph.ascii %>_name"><%= glyph.ascii.chr %></label>
+        <%= text_field_tag "glyph[#{glyph.ascii}][name]", glyph.name %>
+      </li>
+    <% end %>
+    </ul>
   <% end %>
-  </ul>
 
   <div class="form-actions">
     <%= f.submit 'Edit Font', class: 'btn btn-primary' %>
