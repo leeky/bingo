@@ -1,5 +1,6 @@
 Bingo::Application.routes.draw do
   resources :fonts
+
   resources :pictures
   resources :themes
   resources :sets

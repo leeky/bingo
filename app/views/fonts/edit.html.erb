@@ -1,0 +1,13 @@
+<%= simple_form_for @font do |f| %>
+  <%= f.input :name %>
+
+  <ul class="glyphs">
+    <% (33..126).each do |glyph| %>
+      <li><span><%= glyph.chr %></span><%= text_field_tag "font[glyph[#{glyph}]][name]" %></li>
+    <% end %>
+  </ul>
+
+  <div class="form-actions">
+    <%= f.submit 'Edit Font', class: 'btn btn-primary' %>
+  </div>
+<% end %>

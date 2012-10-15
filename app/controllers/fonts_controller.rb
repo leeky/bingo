@@ -20,6 +20,23 @@ class FontsController < ApplicationController
     end
   end
 
+  def edit
+    @font = Font.find(params[:id])
+    @font.glyphs.build
+
+    @glyphs = Glyph.where(font_id: @font).all
+  end
+
+  def update
+    @font = Font.find(params[:id])
+
+    if @font.update_attributes(params[:font])
+      redirect_to fonts_path, notice: 'Font was successfully updated.'
+    else
+      render action: "edit"
+    end
+  end
+
   def destroy
     @font = Font.find(params[:id])
     @font.destroy
