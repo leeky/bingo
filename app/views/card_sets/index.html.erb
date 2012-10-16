@@ -17,7 +17,8 @@
       <td><%= card_set.quantity %></td>
       <Td><%= card_set.columns %>x<%= card_set.rows %></td>
       <td>
-        <%= link_to 'Generate', generate_card_set_path(card_set, format: 'pdf') %>
+        <%= link_to 'Make Bingo Cards', generate_card_set_path(card_set, format: 'pdf') %>
+        <%= link_to 'Make Call Sheet', callsheet_card_set_path(card_set, format: 'pdf') %>
         <%= link_to 'Edit', edit_card_set_path(card_set) %>
         <%= link_to 'Delete', card_set_path(card_set), method: :delete, confirm: "Are you sure?" %>
       </td>

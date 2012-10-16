@@ -6,6 +6,7 @@ Bingo::Application.routes.draw do
   resources :card_sets do
     member do
       get 'generate'
+      get 'callsheet'
     end
   end
 

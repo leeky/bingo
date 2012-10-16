@@ -75,4 +75,34 @@ class CardSetsController < ApplicationController
     end
 
   end
+
+  def callsheet
+    @card_set   = CardSet.find(params[:id])
+
+    @theme      = @card_set.theme
+    @pictures   = @theme.pictures
+    @fonts      = @theme.fonts.where(dingbat: true)
+
+    @cards = []
+
+    @pictures.each do |pic|
+      @cards << pic
+    end
+
+    @fonts.each do |font|
+      glyphs = Glyph.where(font_id: font)
+
+      glyphs.each do |glyph|
+        @cards << glyph
+      end
+    end
+
+    @columns    = @card_set.columns
+    @rows       = @card_set.rows
+
+    respond_to do |format|
+      format.pdf
+    end
+
+  end
 end

@@ -56,5 +56,5 @@ end
     r += 1
   end
 
-  start_new_page unless page == @pages
+  start_new_page
 end
