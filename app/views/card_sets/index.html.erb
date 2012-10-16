@@ -1,0 +1,43 @@
+<h1>Bingo Card Sets</h1>
+
+<% if @card_sets.size > 0 %>
+<table class="table table-striped table-bordered">
+  <thead>
+    <tr>
+      <th>Name:</th>
+      <th>Quantity:</th>
+      <th>Size:</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @card_sets.each do |card_set| %>
+    <tr>
+      <td><%= card_set.name %></td>
+      <td><%= card_set.quantity %></td>
+      <Td><%= card_set.columns %>x<%= card_set.rows %></td>
+      <td>
+        <%= link_to 'Generate', generate_card_set_path(card_set, format: 'pdf') %>
+        <%= link_to 'Edit', edit_card_set_path(card_set) %>
+        <%= link_to 'Delete', card_set_path(card_set), method: :delete, confirm: "Are you sure?" %>
+      </td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<hr />
+<% end %>
+
+<%= simple_form_for @card_set do |f| %>
+  <%= f.input :name %>
+  <%= f.input :quantity %>
+  <%= f.input :columns %>
+  <%= f.input :rows %>
+  <%= f.association :font %>
+  <%= f.association :theme %>
+
+  <div class="form-actions">
+    <%= f.submit 'Save Bingo Card Set', class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -3,7 +3,11 @@ Bingo::Application.routes.draw do
 
   resources :pictures
   resources :themes
-  resources :sets
+  resources :card_sets do
+    member do
+      get 'generate'
+    end
+  end
 
   root to: 'homepage#index'
   # The priority is based upon order of creation:

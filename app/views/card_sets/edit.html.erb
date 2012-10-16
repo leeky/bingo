@@ -1,0 +1,12 @@
+<%= simple_form_for @card_set do |f| %>
+  <%= f.input :name %>
+  <%= f.input :quantity %>
+  <%= f.input :columns %>
+  <%= f.input :rows %>
+  <%= f.association :font %>
+  <%= f.association :theme %>
+
+  <div class="form-actions">
+    <%= f.submit 'Save Bingo Card Set', class: 'btn btn-primary' %>
+  </div>
+<% end %>
