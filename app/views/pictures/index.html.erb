@@ -14,18 +14,17 @@
     <tr>
       <td><%= picture.name %></td>
       <td><%= image_tag picture.image.thumb.url %></td>
-      <td><%= link_to 'Delete', picture_path(picture), method: :delete, confirm: "Are you sure?" %></td>
+      <td><%= link_to 'Delete', picture_path(picture), method: :delete, confirm: "Are you sure?", class: 'btn btn-primary' %></td>
     </tr>
     <% end %>
   </tbody>
 </table>
-
-<hr />
 <% end %>
 
+<h2>Upload a new picture</h2>
 <%= simple_form_for @picture do |f| %>
-  <%= f.input :name %>
   <%= f.input :image %>
+  <%= f.input :name %>
 
   <div class="form-actions">
     <%= f.submit 'Upload Image', class: 'btn btn-primary' %>

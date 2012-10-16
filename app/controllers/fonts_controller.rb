@@ -14,7 +14,11 @@ class FontsController < ApplicationController
     @font = Font.new(params[:font])
 
     if @font.save
-      redirect_to fonts_path, notice: 'Font was successfully uploaded.'
+      if @font.dingbat?
+        redirect_to edit_font_path(@font), notice: 'Font was successfully uploaded. Now choose which characters you want to use.'
+      else
+        redirect_to fonts_path, notice: 'Font was successfully uploaded.'
+      end
     else
       render 'new'
     end

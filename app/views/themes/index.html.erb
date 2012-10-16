@@ -13,8 +13,8 @@
     <tr>
       <td><%= theme.name %></td>
       <td>
-        <%= link_to 'Edit', edit_theme_path(theme) %>
-        <%= link_to 'Delete', theme_path(theme), method: :delete, confirm: "Are you sure?" %>
+        <%= link_to 'Edit', edit_theme_path(theme), class: 'btn btn-primary' %>
+        <%= link_to 'Delete', theme_path(theme), method: :delete, confirm: "Are you sure?", class: 'btn' %>
       </td>
     </tr>
     <% end %>

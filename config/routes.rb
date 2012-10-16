@@ -10,7 +10,7 @@ Bingo::Application.routes.draw do
     end
   end
 
-  root to: 'homepage#index'
+  root to: 'card_sets#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
