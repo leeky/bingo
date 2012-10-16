@@ -44,12 +44,27 @@ class CardSetsController < ApplicationController
 
   def generate
     @card_set   = CardSet.find(params[:id])
+    @pages      = @card_set.quantity
 
     @title      = @card_set.name
     @title_font = @card_set.font
     @theme      = @card_set.theme
     @pictures   = @theme.pictures
     @fonts      = @theme.fonts.where(dingbat: true)
+
+    @cards = []
+
+    @pictures.each do |pic|
+      @cards << pic
+    end
+
+    @fonts.each do |font|
+      glyphs = Glyph.where(font_id: font)
+
+      glyphs.each do |glyph|
+        @cards << glyph
+      end
+    end
 
     @quantity   = @card_set.quantity
     @columns    = @card_set.columns
