@@ -1,7 +1,9 @@
+<h1>Upload Font</h1>
+
 <%= simple_form_for @font do |f| %>
-  <%= f.input :typeface %>
+  <%= f.input :typeface, label: 'Font' %>
   <%= f.input :name %>
-  <%= f.input :dingbat %>
+  <%= f.input :dingbat, label: 'Is this a dingbat font?' %>
 
   <div class="form-actions">
     <%= f.submit 'Upload Font', class: 'btn btn-primary' %>

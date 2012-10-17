@@ -12,6 +12,8 @@
   <%= f.input :dingbat %>
 
   <% if @font.dingbat? %>
+    <h2>Name Your Dingbats</h2>
+    <p>Fill in the box under each dingbat. If you leave one blank, it won't be included.</p>
     <ul class="glyphs clearfix">
     <% @font.glyphs.each do |glyph| %>
       <li>

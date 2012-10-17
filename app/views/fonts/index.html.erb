@@ -5,13 +5,15 @@
   <thead>
     <tr>
       <th>Name:</th>
+      <th>Dingbats?</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
     <% @fonts.each do |font| %>
     <tr>
-      <td><%= font.name %></td>
+      <td><%= link_to font.name, edit_font_path(font) %></td>
+      <td><% if font.dingbat? %><i class="icon-ok"></i><% end %></td>
       <td>
         <%= link_to 'Edit', edit_font_path(font), class: 'btn btn-primary' %>
         <%= link_to 'Delete', font_path(font), method: :delete, confirm: "Are you sure?" , class: 'btn' %>
@@ -20,13 +22,11 @@
     <% end %>
   </tbody>
 </table>
-
-<hr />
 <% end %>
 
 <h2>Upload Font</h2>
 <%= simple_form_for @font do |f| %>
-  <%= f.input :typeface %>
+  <%= f.input :typeface, label: "Font" %>
   <%= f.input :name %>
   <%= f.input :dingbat, label: "Is this a dingbat font?" %>
 

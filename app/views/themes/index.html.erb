@@ -11,7 +11,7 @@
   <tbody>
     <% @themes.each do |theme| %>
     <tr>
-      <td><%= theme.name %></td>
+      <td><%= link_to theme.name, edit_theme_path(theme) %></td>
       <td>
         <%= link_to 'Edit', edit_theme_path(theme), class: 'btn btn-primary' %>
         <%= link_to 'Delete', theme_path(theme), method: :delete, confirm: "Are you sure?", class: 'btn' %>
@@ -22,4 +22,4 @@
 </table>
 <% end %>
 
-<%= link_to 'Create Theme', new_theme_path %>
+<%= link_to 'Create Theme', new_theme_path, class: 'btn btn-primary' %>
