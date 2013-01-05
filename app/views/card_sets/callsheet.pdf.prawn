@@ -8,20 +8,20 @@ end
 logger.info "Generating call sheet for #{@cards.count} bingo cards."
 
 # Define Layout Grid
-define_grid(columns: 3, rows: 3, gutter: 0)
+define_grid(columns: 2, rows: 2, gutter: 0)
 
-@number_of_pages = (@cards.count.to_f / 9).ceil.to_i
+@number_of_pages = (@cards.count.to_f / 4).ceil.to_i
 @current_page = 1
 
-@cards.shuffle.in_groups_of(9) do |page|
+@cards.shuffle.in_groups_of(4) do |page|
   text @card_set.name + ' Call Sheet - page ' + @current_page.to_s + ' of ' + @number_of_pages.to_s
   bounding_box([bounds.left, bounds.top-10.mm], width: bounds.width, height: bounds.height-10.mm) do
 
-    (0..2).each do |y|
-      (0..2).each do |x|
+    (0..1).each do |y|
+      (0..1).each do |x|
         grid(y,x).bounding_box do
 
-          card = page[x+(y*3)]
+          card = page[x+(y*2)]
 
           gx = bounds.left
           gy = bounds.top
@@ -31,7 +31,7 @@ define_grid(columns: 3, rows: 3, gutter: 0)
           bounding_box([gx+2.mm,gy-2.mm], width: gw-4.mm, height: gh-15.mm) do
             if card.is_a?(Glyph)
               font ("font#{card.font.id}") do
-                text card.ascii.chr, align: :center, valign: :center, overflow: :shrink_to_fit, size: 80.pt
+                text card.ascii.chr, align: :center, valign: :center, overflow: :shrink_to_fit, size: 180.pt
               end
             elsif card.is_a?(Picture)
               image "#{card.image.path}", fit: [gw-4.mm, gh-15.mm], position: :center, vposition: :center
